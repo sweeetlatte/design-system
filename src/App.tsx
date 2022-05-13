@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource theme-ui */
+import React from "react";
+import "./App.css";
+import { Button, Flex, ThemeProvider } from "theme-ui";
+import theme from "./theme";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <ThemeProvider theme={theme}>
+            <div className="App">
+                <div
+                    sx={{
+                        width: "100%",
+                        maxWidth: "1200px",
+                        m: "0 auto",
+                        padding: "0 20px",
+                    }}
+                >
+                    <h1>Design system with Theme-ui</h1>
+                    <Flex sx={{ py: 5 }}>
+                        <Button variant="filled" sx={{ flexBasis: 3 }}>
+                            Filled button
+                        </Button>
+                        <Button variant="outlined" sx={{ flexBasis: 2 }}>
+                            Outlined button
+                        </Button>
+                        <Button variant="elevated" sx={{ flexBasis: 1 }}>
+                            Elevated button
+                        </Button>
+                        <Button variant="textBtn" sx={{ flexBasis: 2 }}>
+                            Text button
+                        </Button>
+                        <Button variant="disabled" sx={{ flexBasis: 3 }}>
+                            Disabled button
+                        </Button>
+                    </Flex>
+                    <Flex>
+                        <div sx={{ px: 5, py: 3, bg: "error", flexBasis: 3 }}>
+                            1
+                        </div>
+                        <div sx={{ px: 5, py: 3, bg: "salmon", flexBasis: 3 }}>
+                            2
+                        </div>
+                        <div sx={{ px: 5, py: 3, bg: "orange", flexBasis: 3 }}>
+                            3
+                        </div>
+                    </Flex>
+                </div>
+            </div>
+        </ThemeProvider>
+    );
 }
 
 export default App;
